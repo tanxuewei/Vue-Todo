@@ -8,6 +8,7 @@ require.config({
     shim: {
         'backbone': {
             deps: ['underscore', 'jQuery'],
+            exports: 'Backbone'
         }
     }
 });
