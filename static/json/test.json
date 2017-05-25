@@ -1,18 +1,7 @@
 {
   "code": 200,
   "data": {
-    "name": "shirley",
-    "age": 18,
-    "hobby": "eating",
-    "list": [
-      {
-        "name": "aaaaaaa"
-      }, {
-        "name": "bbbbbbb"
-      }, {
-        "name": "ccccccc"
-      }
-    ]
+    "name": "我是test.json"
   },
   "message": ""
 }

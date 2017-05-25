@@ -55,7 +55,7 @@ const request = function (url, options = {}) {
         if (json.code === 200) {
           resolve(json.data)
         } else {
-          reject(json)
+          reject(json.message || 'error')
         }
       }).catch((err) => {
         console.error('Request failed:', err)

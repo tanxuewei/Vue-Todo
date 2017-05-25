@@ -13,3 +13,6 @@ export function getJson () {
 export function getJson1 () {
   return request.get(urlfix + '/test1.json', {})
 }
+export function getJsonErr () {
+  return request.get(urlfix + '/test2.json', {})
+}
