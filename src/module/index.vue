@@ -1,109 +1,24 @@
 <template>
   <div>
-    <h3>Promise</h3>
-    <p>内容输出区域: </p>
-    <div ref="cnt">
-      <ul>
-        <li v-for="x in logList">{{ x }}</li>
-      </ul>
-    </div>
+    <date></date>
   </div>
 </template>
 <script>
 import * as service from '@/service'
+import date from '@/components/date-picker/date.vue'
 
 export default {
-  name: 'session',
+  name: 'main',
+  components: { date },
   data () {
     return {
       logList: []
     }
   },
   created () {
-    // this.getList()
-    // this.getJson()
-    this.getJsonAll()
-    // this.getJsonErr()
   },
   methods: {
-    /*
-     * 顺序执行
-     *
-     */
-    getJson () {
-      service.getJson()
-        .then((data) => {
-          this.print(data)
-          return service.getJson1()
-        })
-        .then((data) => {
-          //拿到上一步的值去进行处理
-          this.print(data)
-        })
-        .catch((err) => {
-          this.print(err)
-        })
-    },
-    /*
-     * 并行执行, 同时执行
-     *
-     */
-    getJsonAll () {
-      var promise = Promise.all([service.getJson(), service.getJson1()])
-      promise.then((data) => {
-        this.print(data)
-      }).catch((data) => {
-        this.print(data)
-      })
-    },
-    /*
-     * 错误处理
-     *
-     */
-    getJsonErr () {
-      service.getJson()
-        .then((data) => {
-          this.print(data)
-          return service.getJsonErr()
-        })
-        .then((data) => {
-          //拿到上一步的值去进行处理
-          this.print(data)
-          return service.getJson1()
-        })
-        .then((data) => {
-          this.print(data)
-        })
-        .catch((err) => {
-          this.print(err)
-        })
-    },
-    /*
-     * 输出list
-     *
-     */
-    getList () {
-      this.logList = []
-      function promise () {
-        return new Promise((resolve, reject) => {
-          resolve('hahahhahaahah')
-        })
-      }
-      promise()
-        .then((data) => {
-          this.print('str1: ' + data)
-          return promise()
-        })
-        .then((data) => {
-          this.print('str2: ' + data)
-        })
-        .catch((err) => {
-          this.print(err)
-        }) 
-    },
-    print (data) {
-      this.logList.push(data)
-    },
+    
   }
 }
 </script>
@@ -111,5 +26,4 @@ export default {
 li {
   list-style: none;
 }
-#edit{height:500px;width:500px;border:1px solid red;}
 </style>
