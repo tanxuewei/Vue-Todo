@@ -1,10 +1,12 @@
 <template>
   <div>
     <h3>{{ monthNames[month] }}</h3>
+    <button @click="changeMonth('pre')">上个月</button>
+    <button @click="changeMonth('next')">下个月</button>
     <ul>
       <li v-for="x in 7" 
           class="hd">{{ dayNames[x-1] }}</li>
-      <li v-for="x in 35"
+      <li v-for="x in 37"
           class="bd">
         <span v-if="x > day && (x - day <= dayCounts)">{{ x - day }}</span>
         </li>
@@ -35,13 +37,23 @@ export default {
 
   },
   methods: {
-    getCurMonth () {
+    getCurMonth (year, month) {
       let today = new Date()
-      this.year = today.getFullYear()
-      this.month = today.getMonth()
+      this.year = year || today.getFullYear()
+      this.month = month || today.getMonth()
       this.date = today.getDate()
       this.dayCounts = getDayCountOfMonth(this.year, this.month)
-      this.day = getFirstDayOfMonth(today)
+      this.day = getFirstDayOfMonth(new Date(this.year + '-' + (this.month + 1) + '-' + this.date))
+    },
+    changeMonth (type) {
+      if (type === 'pre') {
+        this.year = (this.month === 0 ? this.year - 1 : this.year)
+        this.month = (this.month === 0 ? 11 : this.month - 1)
+      } else {
+        this.year = (this.month === 11 ? this.year + 1 : this.year)
+        this.month = (this.month === 11 ? 0 : this.month + 1) 
+      }
+      this.getCurMonth(this.year, this.month)
     }
   }
 }
