@@ -6,10 +6,10 @@
     <ul>
       <li v-for="x in 7" 
           class="hd">{{ dayNames[x-1] }}</li>
-      <li v-for="x in 37"
+      <li v-for="x in rows"
           class="bd">
         <span v-if="x > day && (x - day <= dayCounts)">{{ x - day }}</span>
-        </li>
+      </li>
     </ul>
   </div>
 </template>
@@ -25,6 +25,7 @@ export default {
       date: 0,
       day: 0,
       dayCounts: 0,
+      rows: 0,
       dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   
@@ -44,6 +45,7 @@ export default {
       this.date = today.getDate()
       this.dayCounts = getDayCountOfMonth(this.year, this.month)
       this.day = getFirstDayOfMonth(new Date(this.year + '-' + (this.month + 1) + '-' + this.date))
+      this.rows = Math.ceil((this.dayCounts + this.day) / 7) * 7
     },
     changeMonth (type) {
       if (type === 'pre') {
