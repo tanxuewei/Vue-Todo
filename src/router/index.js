@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/module/index.vue'
 import List from '@/module/list.vue'
 import Game from '@/module/game.vue'
+import DatePage from '@/module/date.vue'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/game',
       name: 'game',
       component: Game
+    },
+    {
+      path: '/date',
+      name: 'date',
+      component: DatePage
     }
   ]
 })

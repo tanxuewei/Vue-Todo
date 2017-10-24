@@ -1,32 +1,32 @@
 <template>
   <div>
-    <date></date>
+    <t-menu></t-menu>
   </div>
 </template>
 <script>
-import * as service from '@/service'
-import date from '@/components/date-picker/date.vue'
+import TMenu from '@/components/menu.vue'
 
 export default {
   name: 'main',
-  components: { date },
+  components: {
+    TMenu
+  },
   data () {
     return {
       logList: []
     }
   },
   created () {
-    this.getInit()
-    this.getFunc({x: 1}, 4, 5, 6, 7)
+    // this.getInit()
+    // this.getFunc({x: 1}, 4, 5, 6, 7)
   },
   methods: {
     getInit () {
       let a = 4
       for (let i=0; i<5; i++) {
-        console.log(a)
-      }
-      for (let i=0; i<6; i++) {
-        console.log(a)
+        setTimeout(function () {
+          console.log(i)
+        }, 1000)
       }
       console.log(typeof i)
     },
@@ -38,7 +38,5 @@ export default {
 }
 </script>
 <style lang="less">
-li {
-  list-style: none;
-}
+
 </style>
