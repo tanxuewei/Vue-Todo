@@ -14,13 +14,11 @@ export default {
     myButton
   },
   data () {
-     return {
-         
-     }
+    return {
+    }
   },
   methods: {
     buttonClick () {
-      
     }
   }
 }
