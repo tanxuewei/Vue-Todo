@@ -1,15 +1,11 @@
 {
   "presets": [
-    "es2015",
-    ["env", { "modules": false }],
-    "stage-2"
+    [
+      "@babel/preset-env", {
+        "targets": { "node": "current", "ie": 9 },
+        "useBuiltIns": "entry"
+      }
+    ]
   ],
-  "plugins": ["transform-runtime"],
-  "comments": false,
-  "env": {
-    "test": {
-      "presets": ["env", "stage-2"],
-      "plugins": [ "istanbul" ]
-    }
-  }
+  "plugins": []
 }
