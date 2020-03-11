@@ -4,7 +4,10 @@
   "description": "Vue源码学习",
   "author": "shirley <tanxuewei94@126.com>",
   "main": "src/index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node ./webpack.config.js",
+    "dev": "webpack --config ./webpack.config.js"
+  },
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.7.4",
@@ -16,7 +19,13 @@
     "eslint": "^6.7.1",
     "eslint-config-standard": "^14.1.0",
     "eslint-loader": "^3.0.2",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "webpack": "^4.41.2"
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.41.2",
+    "webpack-dev-server": "^3.9.0"
   }
 }
